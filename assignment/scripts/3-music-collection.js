@@ -23,8 +23,13 @@ console.log(addToCollection(myCollection, 'Can\'t Buy A Thrill', 'Steely Dan', 1
 
 console.log(myCollection);
 
-// function showCollection (collection) {}
+function showCollection(album) {
+  for (album of myCollection) {
+    console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
+  }
+}
 // test showCollection
+showCollection('Album in my collection:');
 
 // function findByArtist (collection, artist) {}
 // test findByArtist
