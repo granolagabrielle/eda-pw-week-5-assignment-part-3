@@ -70,7 +70,7 @@ console.log(findByArtist(myCollection, "ABBA"));
 
 // function to search for artist and year
 function search(collection, artist, yearPublished) {
-  let searchArray = [];
+  const searchArray = [];
   for (let i = 0; i < collection.length; i++) {
     if (
       collection[i].artist === artist &&
@@ -79,14 +79,16 @@ function search(collection, artist, yearPublished) {
       searchArray.push(
         `artist: ${collection[i].artist}, year: ${collection[i].yearPublished}`
       );
-    } else {
-      return collection;
     }
+  }
+  if (searchArray.length === 0) {
+    return collection;
   }
   return searchArray;
 }
 
 console.log(search(myCollection, "Courtney Barnett", 2018));
+console.log(search(myCollection, "Sylvan Esso", 2020));
 console.log(search(myCollection, "ABBA", 2024));
 console.log(search(myCollection, "Wilco", 1908));
 
