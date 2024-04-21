@@ -50,40 +50,45 @@ function showCollection(collection, album) {
 showCollection(`Album in my collection:`);
 
 // function to find albums by artist and add them to an array
-/* function findByArtist(collection, artist) {
+function findByArtist(collection, artist) {
   let artistArray = [];
   for (let i = 0; i < collection.length; i++) {
     if (collection[i].artist === artist) {
-      console.log(collection[i].artist);
-      artistArray.push(collection[i].album);
-    }
-
-    return artistArray;
-  }
-}
-*/
-
-/* function findByArtist(artist, collection) {
-  const artistArray = [];
-  const i = 0;
-  for (artist of collection) {
-    if (artist === collection[i].artist) {
-      artistArray.push(collection[i].album);
-      i++;
+      artistArray.push(collection[i].title);
     }
   }
   return artistArray;
 }
-*/
 
 // test findByArtist
-console.log(findByArtist("Courtney Barnett", myCollection));
-console.log(findByArtist("Steely Dan", myCollection));
-console.log(findByArtist("ABBA", myCollection));
+console.log(findByArtist(myCollection, "Courtney Barnett"));
+console.log(findByArtist(myCollection, "Steely Dan"));
+console.log(findByArtist(myCollection, "Sylvan Esso"));
+console.log(findByArtist(myCollection, "ABBA"));
 
 // STRETCH GOALS
 
-console.log(myCollection);
+// function to search for artist and year
+function search(collection, artist, yearPublished) {
+  let searchArray = [];
+  for (let i = 0; i < collection.length; i++) {
+    if (
+      collection[i].artist === artist &&
+      collection[i].yearPublished === yearPublished
+    ) {
+      searchArray.push(
+        `artist: ${collection[i].artist}, year: ${collection[i].yearPublished}`
+      );
+    } else {
+      return collection;
+    }
+  }
+  return searchArray;
+}
+
+console.log(search(myCollection, "Courtney Barnett", 2018));
+console.log(search(myCollection, "ABBA", 2024));
+console.log(search(myCollection, "Wilco", 1908));
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
