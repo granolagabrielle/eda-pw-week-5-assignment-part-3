@@ -58,7 +58,8 @@ function findByArtist(collection, artist) {
     }
   }
   return artistArray;
-}
+} 
+// function findByArtist notes: add whole object and not just the title. for let album of collection loop instead of the for if
 
 // test findByArtist
 console.log(findByArtist(myCollection, "Courtney Barnett"));
