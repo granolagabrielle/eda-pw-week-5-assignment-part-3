@@ -38,8 +38,8 @@ console.log(
 );
 
 // write function to show collection
-function showCollection(collection, album) {
-  for (album of myCollection) {
+function showCollection(collection) {
+  for (const album of myCollection) {
     console.log(
       `${collection} ${album.title} by ${album.artist}, published in ${album.yearPublished}.`
     );
@@ -50,7 +50,8 @@ function showCollection(collection, album) {
 showCollection(`Album in my collection:`);
 
 // function to find albums by artist and add them to an array
-function findByArtist(collection, artist) {
+// incorrect function below
+/* function findByArtist(collection, artist) {
   let artistArray = [];
   for (let i = 0; i < collection.length; i++) {
     if (collection[i].artist === artist) {
@@ -58,8 +59,19 @@ function findByArtist(collection, artist) {
     }
   }
   return artistArray;
-} 
+} */
+
 // function findByArtist notes: add whole object and not just the title. for let album of collection loop instead of the for if
+// updated findByArtist function
+function findByArtist(collection, artist) {
+  const artistArray = [];
+  for (const album of collection) {
+    if (album.artist === artist) {
+      artistArray.push(album);
+    }
+  }
+  return artistArray;
+}
 
 // test findByArtist
 console.log(findByArtist(myCollection, "Courtney Barnett"));
